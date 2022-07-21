@@ -10,8 +10,8 @@ import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 const Options: MicroserviceOptions = {
   transport: Transport.TCP,
   options: {
-    host: 'localhost',
-    port: 1000,
+    host: 'https://freedocteuruserservice.herokuapp.com',
+    port: 80,
   },
 };
 const logger = new Logger('Main');
