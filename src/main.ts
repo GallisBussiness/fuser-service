@@ -10,7 +10,6 @@ import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 const Options: MicroserviceOptions = {
   transport: Transport.TCP,
   options: {
-    host: 'localhost',
     port: 80,
   },
 };

@@ -10,6 +10,8 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 1000
+EXPOSE 80
 
-CMD ["npm","run","start:dev"]
+RUN npm run build
+
+CMD ["npm","run","start:prod"]
