@@ -7,10 +7,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 
+
+const port = parseInt(process.env.PORT, 10); 
+
 const Options: MicroserviceOptions = {
   transport: Transport.TCP,
   options: {
-    port: parseInt(process.env.PORT, 10) || 80,
+    host: 'https://fuser-service-production.up.railway.app',
+    port: port,
   },
 };
 const logger = new Logger('Main');
@@ -28,6 +32,6 @@ async function bootstrap() {
       disableErrorMessages: process.env.NODE_ENV === 'production',
     }),
   );
-  app.listen().then(() => logger.log(`userService is listen on port : ${process.env.PORT}`));
+  app.listen().then(() => logger.log(`userService is listen on port : ${port}`));
 }
 bootstrap();
