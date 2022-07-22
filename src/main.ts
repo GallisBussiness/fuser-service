@@ -10,7 +10,7 @@ import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 const Options: MicroserviceOptions = {
   transport: Transport.TCP,
   options: {
-    port: 80,
+    port: parseInt(process.env.PORT, 10) || 80,
   },
 };
 const logger = new Logger('Main');
@@ -28,6 +28,6 @@ async function bootstrap() {
       disableErrorMessages: process.env.NODE_ENV === 'production',
     }),
   );
-  app.listen().then(() => logger.log('userService is listen on port : 1000'));
+  app.listen().then(() => logger.log(`userService is listen on port : ${process.env.PORT}`));
 }
 bootstrap();
