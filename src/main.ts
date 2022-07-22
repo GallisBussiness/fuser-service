@@ -13,7 +13,7 @@ const port = parseInt(process.env.PORT, 10);
 const Options: MicroserviceOptions = {
   transport: Transport.TCP,
   options: {
-    host: '//fuser-service-production.up.railway.app',
+    host: 'localhost',
     port: port,
   },
 };
